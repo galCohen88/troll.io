@@ -4,28 +4,25 @@
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
+  "asar": true,
+  "asarUnpack": [
+    "../node_modules/uws"
+  ],
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "icn": "electron-icon-maker --input=./troll.png --output=./build",
-    "ic": "electron-packager ./src/ trollio --icon=build/icon.icns"
+    "publish": "electron-forge publish"
   },
   "keywords": [],
   "author": {
     "name": "galcohen",
     "email": "gal.cohen@autodesk.com"
   },
-  "build": {
-    "mac": {
-      "icon": "./build/icons/mac/icon.icns"
-    }
-  },
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {"icon": "icon4.icns"},
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",

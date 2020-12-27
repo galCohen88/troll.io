@@ -7,6 +7,7 @@
 	"build": {
 		"appId": "trollio"
 	},
+	"asar": false,
 	"main": "public/electron.js",
 	"homepage": "./",
 	"dependencies": {
@@ -15,16 +16,23 @@
 		"@testing-library/user-event": "^12.1.10",
 		"concurrently": "^5.3.0",
 		"cross-env": "^7.0.3",
+		"electron-icon-maker": "^0.0.5",
+		"electron-is-dev": "^1.2.0",
+		"electron-squirrel-startup": "^1.0.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-scripts": "4.0.1",
+		"socket.io-client": "^3.0.4",
 		"wait-on": "^5.2.1",
 		"web-vitals": "^0.2.4"
 	},
 	"devDependencies": {
-		"electron": "^11.1.1",
-		"electron-builder": "^22.9.1",
-		"electron-is-dev": "^1.2.0"
+		"@electron-forge/cli": "^6.0.0-beta.54",
+		"@electron-forge/maker-deb": "^6.0.0-beta.54",
+		"@electron-forge/maker-rpm": "^6.0.0-beta.54",
+		"@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+		"@electron-forge/maker-zip": "^6.0.0-beta.54",
+		"electron": "11.0.3"
 	},
 	"scripts": {
 		"react-start": "react-scripts start",
@@ -34,7 +42,37 @@
 		"electron-build": "electron-builder",
 		"release": "npm run react-build && electron-builder --publish=always",
 		"build": "npm run react-build && npm run electron-build",
+		"make": "electron-forge make",
 		"start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
+	},
+	"config": {
+		"forge": {
+			"packagerConfig": {
+				"icon": "icon.icns"
+			},
+			"makers": [
+				{
+					"name": "@electron-forge/maker-squirrel",
+					"config": {
+						"name": "trollio"
+					}
+				},
+				{
+					"name": "@electron-forge/maker-zip",
+					"platforms": [
+						"darwin"
+					]
+				},
+				{
+					"name": "@electron-forge/maker-deb",
+					"config": {}
+				},
+				{
+					"name": "@electron-forge/maker-rpm",
+					"config": {}
+				}
+			]
+		}
 	},
 	"eslintConfig": {
 		"extends": [

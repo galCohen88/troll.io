@@ -1,7 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react'
+import WebSocket from './socket' 
 
 function App() {
+  let user = 'dormesica';
+  
+  useEffect(() => {
+    const socket = new WebSocket();
+    socket.connect(user);
+  }, []);
+  
   return (
     <div className="App">
       <header className="App-header">

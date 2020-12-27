@@ -4,8 +4,8 @@ import { useEffect } from 'react'
 import WebSocket from './socket' 
 
 function App() {
-  let user = 'dormesica';
-  
+  let user = 'gal.cohen@autodesk.com';
+
   useEffect(() => {
     const socket = new WebSocket();
     socket.connect(user);

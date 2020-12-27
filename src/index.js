@@ -1,6 +1,13 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
+const io = require("socket.io-client");
+
+const socket = io("ws://ec2-52-91-163-171.compute-1.amazonaws.com", {
+  reconnectionDelayMax: 10000,
+});
+
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
@@ -11,7 +18,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 400,
     height: 400,
-    icon: "/Users/galcohen/dev/aaa/troll.io/trollio/src/icon.icns"
+    icon: "icon.icns"
   });
 
   // and load the index.html of the app.

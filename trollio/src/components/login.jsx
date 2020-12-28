@@ -16,7 +16,8 @@ export function LoginForm(props) {
   function handleLogin(event) {
     axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user})
     .then((response) => {
-      setIsLogged(response.data.loggedIn);
+      const isLogged = response.data.loggedIn;
+      setIsLogged(isLogged);
       isLogged && socket.connect(user);
     })
     .catch((error) => {

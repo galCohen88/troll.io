@@ -1,4 +1,5 @@
-const io = require('socket.io-client');
+import io from 'socket.io-client';
+import registerHandlers from './handlers';
 
 class WebSocket {
     constructor() {
@@ -16,6 +17,8 @@ class WebSocket {
             reconnectionDelayMax: 10000,
         });
 
+        registerHandlers(this._socket);
+
         this._emit('login', { username });
     }
 
@@ -29,4 +32,4 @@ class WebSocket {
 }
 
 
-module.exports = WebSocket;
+export default WebSocket;

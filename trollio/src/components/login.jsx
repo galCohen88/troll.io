@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './login.css';
+import { useSocket } from '../socket';
 
 export function LoginForm(props) {
   const [user, setUser] = useState(null);
   const [isLogged, setIsLogged] = useState(false);
+
+  const socket = useSocket();
 
   function handleChange(event) {
     setUser(event.target.value);
@@ -14,6 +17,7 @@ export function LoginForm(props) {
     axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user})
     .then((response) => {
       setIsLogged(response.data.loggedIn);
+      isLogged && socket.connect(user);
     })
     .catch((error) => {
       alert('Problem logging in')

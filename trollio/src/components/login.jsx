@@ -16,13 +16,12 @@ class LoginForm extends React.Component {
     }
   
     handleLogin(event) {
-      let res = axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user: this.state.user})
+      axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user: this.state.user})
       .then((response) => {
-        alert(JSON.stringify(response.data))
-        return response
+        this.setState({loggedIn: response.data.loggedIn})
       })
       .catch((error) => {
-        alert('catch')
+        alert('Problem logging in')
       });
       event.preventDefault();
     }

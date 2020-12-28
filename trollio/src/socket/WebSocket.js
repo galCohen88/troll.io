@@ -7,8 +7,12 @@ class WebSocket {
     }
 
     connect(username) {
+        if (!username) {
+            throw new Error('Username not specified');
+        }
+
         this._username = username;
-        this._socket = io('localhost', {
+        this._socket = io('ws://ec2-52-91-163-171.compute-1.amazonaws.com', {
             reconnectionDelayMax: 10000,
         });
 

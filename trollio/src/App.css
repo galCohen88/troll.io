@@ -4,12 +4,13 @@
 
 .App-logo {
   height: 40vmin;
+  margin-bottom: 50px;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 5s linear;
   }
 }
 
@@ -22,6 +23,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Login-form {
+  margin-top: 50%;
 }
 
 .App-link {

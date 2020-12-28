@@ -1,0 +1,9 @@
+.Text-box {
+    width: 40vmin;
+    pointer-events: none;
+    margin-top: 50px;
+  }
+
+  .title {
+    width: 40vmin;
+  }

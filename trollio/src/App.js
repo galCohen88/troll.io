@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+import logo from './rotate.png';
 import './App.css';
 import { useEffect } from 'react'
 import WebSocket from './socket' 
+import { LoginForm } from './components/login'
 
 function App() {
   let user = 'gal.cohen@autodesk.com';
 
-  useEffect(() => {
+  useEffect((user) => {
     const socket = new WebSocket();
     socket.connect(user);
   }, []);
@@ -16,16 +17,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <LoginForm className='Login-form'/>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );

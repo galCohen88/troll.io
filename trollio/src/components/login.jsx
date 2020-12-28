@@ -1,41 +1,42 @@
 import React from 'react';
-import users from '../users.json'
+import axios from 'axios';
 import './login.css';
 
 class LoginForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {loggedIn: '', user: ''};
   
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleLogin.bind(this);
+      this.handleLogin = this.handleLogin.bind(this);
     }
   
     handleChange(event) {
-      this.setState({value: event.target.value});
+      this.setState({user: event.target.value});
     }
   
     handleLogin(event) {
-      if (users.includes(this.state.value)){
-          // TODO move users.json to BE, in rest API return True when exists
-        alert('user ' + this.state.value + ' was found');
-      }
-      else{
-        alert('user ' + this.state.value + ' was not found');
-      }
+      let res = axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user: this.state.user})
+      .then((response) => {
+        alert(JSON.stringify(response.data))
+        return response
+      })
+      .catch((error) => {
+        alert('catch')
+      });
       event.preventDefault();
     }
   
     render() {
       return (
           <div>
-              <div class="title">
+              <div className="title">
                   <label>TROLLIO</label>
               </div>
               <div>
-                  <form onSubmit={this.handleSubmit}>
+                  <form onSubmit={this.handleLogin}>
                       <label>
-                          <input type="text" class='Text-box' value={this.state.value} onChange={this.handleChange} placeholder="User email" />
+                          <input type="text" className='Text-box' value={this.state.user} onChange={this.handleChange} placeholder="User email" />
                       </label>
                       <input type="submit" value="Login" />
                   </form>

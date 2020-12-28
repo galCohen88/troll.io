@@ -1,48 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './login.css';
 
-class LoginForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {loggedIn: '', user: ''};
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleLogin = this.handleLogin.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({user: event.target.value});
-    }
-  
-    handleLogin(event) {
-      axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user: this.state.user})
-      .then((response) => {
-        this.setState({loggedIn: response.data.loggedIn})
-      })
-      .catch((error) => {
-        alert('Problem logging in')
-      });
-      event.preventDefault();
-    }
-  
-    render() {
-      return (
-          <div>
-              <div className="title">
-                  <label>TROLLIO</label>
-              </div>
-              <div>
-                  <form onSubmit={this.handleLogin}>
-                      <label>
-                          <input type="text" className='Text-box' value={this.state.user} onChange={this.handleChange} placeholder="User email" />
-                      </label>
-                      <input type="submit" value="Login" />
-                  </form>
-              </div>
-          </div>
-      );
-    }
+export function LoginForm(props) {
+  const [user, setUser] = useState(null);
+  const [isLogged, setIsLogged] = useState(false);
+
+  function handleChange(event) {
+    setUser(event.target.value);
   }
 
-  export { LoginForm };
+  function handleLogin(event) {
+    axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user})
+    .then((response) => {
+      setIsLogged(response.data.loggedIn);
+    })
+    .catch((error) => {
+      alert('Problem logging in')
+    });
+    event.preventDefault();
+  }
+
+  return (
+    <div>
+        <div className="title">
+            <label>TROLLIO</label>
+        </div>
+        <div>
+            <form onSubmit={handleLogin}>
+                <label>
+                    <input type="text" className='Text-box' value={user} onChange={handleChange} placeholder="User email" />
+                </label>
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+    </div>
+  );
+}
+
+// class LoginForm extends React.Component {
+//     constructor(props) {
+//       super(props);
+//       this.state = {loggedIn: '', user: ''};
+  
+//       this.handleChange = this.handleChange.bind(this);
+//       this.handleLogin = this.handleLogin.bind(this);
+//     }
+  
+//     handleChange(event) {
+//       this.setState({user: event.target.value});
+//     }
+  
+//     handleLogin(event) {
+//       axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user: this.state.user})
+//       .then((response) => {
+//         this.setState({loggedIn: response.data.loggedIn})
+//       })
+//       .catch((error) => {
+//         alert('Problem logging in')
+//       });
+//       event.preventDefault();
+//     }
+  
+//     render() {
+//       return (
+//           <div>
+//               <div className="title">
+//                   <label>TROLLIO</label>
+//               </div>
+//               <div>
+//                   <form onSubmit={this.handleLogin}>
+//                       <label>
+//                           <input type="text" className='Text-box' value={this.state.user} onChange={this.handleChange} placeholder="User email" />
+//                       </label>
+//                       <input type="submit" value="Login" />
+//                   </form>
+//               </div>
+//           </div>
+//       );
+//     }
+//   }
+
+//   export { LoginForm };

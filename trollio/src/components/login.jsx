@@ -26,12 +26,18 @@ export function LoginForm(props) {
       if (!isLogged){
         alert('User not found')
       }
-      isLogged && socket.connect(user);
+      isLogged && handleLoginTrue(response);
     })
     .catch((error) => {
-      alert('Problem logging in')
+      alert('Problem logging in');
+      console.log("Problem logging in:", error);
     });
     event.preventDefault();
+  }
+
+  function handleLoginTrue(response) {
+      props.appHandler(response.data.scores);
+      socket.connect(user);
   }
 
   return (
@@ -58,15 +64,15 @@ export function LoginForm(props) {
 //     constructor(props) {
 //       super(props);
 //       this.state = {loggedIn: '', user: ''};
-  
+
 //       this.handleChange = this.handleChange.bind(this);
 //       this.handleLogin = this.handleLogin.bind(this);
 //     }
-  
+
 //     handleChange(event) {
 //       this.setState({user: event.target.value});
 //     }
-  
+
 //     handleLogin(event) {
 //       axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user: this.state.user})
 //       .then((response) => {
@@ -77,7 +83,7 @@ export function LoginForm(props) {
 //       });
 //       event.preventDefault();
 //     }
-  
+
 //     render() {
 //       return (
 //           <div>

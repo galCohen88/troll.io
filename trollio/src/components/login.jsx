@@ -16,7 +16,8 @@ export function LoginForm(props) {
   }
 
   function handleLogin(event) {
-    popUp(`https://youtu.be/jW7fi-9MRUQ?t=38`)
+    // popUp(`https://youtu.be/jW7fi-9MRUQ?t=38`)
+    popUp(`https://www.247backgammon.org/`)
     axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user})
     .then((response) => {
       const isLogged = response.data.loggedIn;
@@ -32,7 +33,7 @@ export function LoginForm(props) {
   return (
     <div>
         <div className="title">
-            <label>TROLLIO</label>
+            <label>TROLL.IO</label>
         </div>
         <div>
             <form onSubmit={handleLogin}>

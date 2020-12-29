@@ -3,7 +3,8 @@ import axios from 'axios';
 import './login.css';
 import { useSocket } from '../socket';
 
-import {popUp} from './popup'
+import { popUp } from './popup'
+import { ReceiverModal } from './receiverModal'
 
 export function LoginForm(props) {
   const [user, setUser] = useState(null);
@@ -42,6 +43,9 @@ export function LoginForm(props) {
                 </label>
                 <input type="submit" className='Submit' value="Login" />
             </form>
+        </div>
+        <div>
+          <ReceiverModal/>
         </div>
     </div>
   );

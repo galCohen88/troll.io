@@ -1,0 +1,41 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .ReceiverModal .modal-content {
+    background-color: #272527;
+    color: #fff;
+    width: 572px;
+    height: 100%;
+    margin-left: auto;
+  }
+  
+  .ReceiverModal.custom-dialog {width:80% !important; top:20%;}
+
+  .Center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .ModalText{
+    margin-top: 8px;
+  }
+
+  .Sender{
+    margin-top: 40px;
+  }
+
+  .SenderName{
+    font-weight: 500;
+  }
+  
+  .Heart {
+    height: 14px;
+    width: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+

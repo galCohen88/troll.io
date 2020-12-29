@@ -17,6 +17,7 @@ export function ReceiverModal() {
 
     const handleClose = () => { setShow(false); resizeWindow(600, 500); }
     const handleShow = () => { setShow(true); resizeWindow(945, 896); }
+    // TODO remove, change to variables from web socket
     var img = "http://interactive.nydailynews.com/2016/05/simpsons-quiz/img/simp1.jpg";
     var audio = 'http://dnfw.org/hl/sound/misc/doh.wav'
     var modalText = "Doohhhhhoooo!!!!!!"

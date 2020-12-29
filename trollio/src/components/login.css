@@ -3,33 +3,34 @@
     pointer-events: none;
     margin-top: 50px;
     background-color: #1D1B1D;
-    height: 48px;
+    height: 36px;
     margin-right: 14px;
     color: white;
     border-style: hidden;
   }
 
   .Submit{
-    height: 48px;
-    width: 114px;
+    height: 36px;
+    width: 70px;
     background: linear-gradient(180deg, #289689 0%, #3FB27B 77.78%);
     border-style: hidden;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 23px;
     letter-spacing: 0em;
     text-align: center;
     color: #FFFFFF;
+    border-radius: 4px;
 
   }
 
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1; /* Firefox */
+    padding-left: 14px;
   }
 
   .title {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 20px;
     letter-spacing: 0em;
     text-align: center;
     color: #4DEC9F;

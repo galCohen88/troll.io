@@ -3,7 +3,7 @@ import axios from 'axios';
 import './login.css';
 import { useSocket } from '../socket';
 
-// import {popUp} from './popup'
+import {popUp} from './popup'
 
 export function LoginForm(props) {
   const [user, setUser] = useState(null);
@@ -16,7 +16,7 @@ export function LoginForm(props) {
   }
 
   function handleLogin(event) {
-    // popUp()
+    popUp(`https://youtu.be/jW7fi-9MRUQ?t=38`)
     axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user})
     .then((response) => {
       const isLogged = response.data.loggedIn;

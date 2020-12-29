@@ -3,33 +3,25 @@ const electron = window.require("electron")
 const remote = electron.remote;
 const BrowserWindow = remote.BrowserWindow;
 
-export function popUp(){
-  console.log("popup!")
-  // const currentWindow = remote.getCurrentWindow();
-  // currentWindow.moveTop();
-  // currentWindow.focus();
-  // currentWindow.hide();
-  // currentWindow.show();
-  // currentWindow.setPosition(100,5, true);
-  // currentWindow.setPosition(5,100, true);
-  // currentWindow.setPosition(100,5, true);
-  // currentWindow.setPosition(5,100, true);
-  // currentWindow.setPosition(100,5, true);
-  // currentWindow.setPosition(5,100, true);
-  // currentWindow.setPosition(100,5, true);
-  // currentWindow.setPosition(5,100, true);
-  // return
-  
+export function popUp(url){
   const win = new BrowserWindow({
     height: 600,
     width: 800
   });
-  win.loadURL(`https://youtu.be/jW7fi-9MRUQ?t=38`);
+  win.loadURL(url);
+  moveWindowOnceReady(win);
+}
 
-  
+
+function moveWindowOnceReady(win){
+
   win.webContents.once('dom-ready', () => {
+    win.moveTop();
+    win.focus();
+    win.hide();
+    win.show();
     var maximum =  1000;
-    var minimum =  0;
+    var minimum =  500;
     var moves = 20;
     var count =  0;
     while (count<moves) {
@@ -38,7 +30,8 @@ export function popUp(){
       var y = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
       win.setPosition(x,y, true); 
     }
-  
+    win.maximize()
   });
+
 
 }

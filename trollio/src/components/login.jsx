@@ -3,12 +3,12 @@ import axios from 'axios';
 import './login.css';
 import { useSocket } from '../socket';
 
-import {popUp} from './popup'
+import { popUp } from './popup'
+import { ReceiverModal } from './receiverModal'
 
 export function LoginForm(props) {
   const [user, setUser] = useState(null);
   const [isLogged, setIsLogged] = useState(false);
-  // const [appHandler, setAppHandler] = useState(null);
 
   const socket = useSocket();
 
@@ -19,13 +19,13 @@ export function LoginForm(props) {
   function handleLogin(event) {
     // popUp(`https://youtu.be/jW7fi-9MRUQ?t=38`)
     // popUp(`https://www.247backgammon.org/`)
-
-    // const url = 'http://ec2-52-91-163-171.compute-1.amazonaws.com/login';
-    const url = 'http://localhost:80/login';
-    axios.post(url, {user})
+    axios.post('http://ec2-52-91-163-171.compute-1.amazonaws.com/login', {user})
     .then((response) => {
       const isLogged = response.data.loggedIn;
       setIsLogged(isLogged);
+      if (!isLogged){
+        alert('User not found')
+      }
       isLogged && handleLoginTrue(response);
     })
     .catch((error) => {
@@ -52,6 +52,9 @@ export function LoginForm(props) {
                 </label>
                 <input type="submit" className='Submit' value="Login" />
             </form>
+        </div>
+        <div>
+          <ReceiverModal/>
         </div>
     </div>
   );

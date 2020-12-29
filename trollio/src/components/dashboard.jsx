@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
 
     render() {
         const rows = this.props.scores.map( this.renderScoreRow );
-        console.log(rows);
+
         return (
             <table id='scores'>
                 <tr>

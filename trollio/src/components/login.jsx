@@ -39,7 +39,7 @@ export function LoginForm(props) {
                 <label>
                     <input type="text" className='Text-box' value={user} onChange={handleChange} placeholder="User email" />
                 </label>
-                <input type="submit" value="Login" />
+                <input type="submit" className='Submit' value="Login" />
             </form>
         </div>
     </div>

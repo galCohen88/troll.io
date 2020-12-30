@@ -1,0 +1,121 @@
+
+.SendTrollModal__container {
+    padding: 70px 40px;
+    background-color: #272527;
+    height: calc(720px + 70px);
+    width: calc(650px + 40px);
+    box-shadow: 0px 18px 50px rgba(0, 0, 0, 0.52);
+}
+
+.SendTrollModal__row {
+    display: block;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.SendTrollModa__field-title {
+    color: white;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.SendTrollModa__field-input {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    height: 36px;
+    background-color: #1D1B1D;
+    border: 0.5px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 8px 8px 12px;
+
+    border: 0.5px solid rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0.5px 0px rgba(255, 255, 255, 0.05), inset 0px -1px 0px rgba(255, 255, 255, 0.08), inset 0px -0.5px 0px rgba(255, 255, 255, 0.09), inset 0px 1.5px 1.5px rgba(0, 0, 0, 0.1);
+}
+
+.SendTrollModal__input-trolled {
+    width: 324px;
+}
+
+.SendTrollModal__input-datetime {
+    width: 220px;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.SendTrollModal__user-option {
+    background-color: white;
+    color: black;
+    padding: 8px 8px 8px 12px;
+}
+.SendTrollModal__user-option:hover {
+    background-color: #222222;
+    color: white;
+    padding: 8px 8px 8px 12px;
+}
+
+.SendTrollModal__troll-content-container {
+    height: 282px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+
+.SendTrollModa__input-text-area {
+    height: 56px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+.SendTrollModal__buttons-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.SendTrollModal__button {
+    height: 28px;
+    width: 105px;
+    font-size: 16px;
+
+    box-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.4), 0px 0.5px 1.5px rgba(0, 0, 0, 0.2), inset 0px 0.5px 0px rgba(255, 255, 255, 0.25), inset 0px 1px 0px rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    color: white;
+    border-color: transparent;
+}
+.SendTrollModal__button--secondary {
+    background-color: #383638;
+}
+.SendTrollModal__button--primary {
+    background: linear-gradient(180deg, #289689 0%, #3FB27B 77.78%);
+}
+.SendTrollModal__button:disabled {
+    background: linear-gradient(180deg, #828282 9.38%, #999999 100%);
+}
+
+.SendTrollModal__gifs-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.typeButtonsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(2, 52px);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.trollTypeButton {
+    width: 90px;
+    height: 52px;
+    background: #383638;
+    box-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.4), 0px 0.5px 1.5px rgba(0, 0, 0, 0.2), inset 0px 0.5px 0px rgba(255, 255, 255, 0.25), inset 0px 1px 0px rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+}

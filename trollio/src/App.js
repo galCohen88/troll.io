@@ -1,7 +1,7 @@
 import logo from './rotate.png';
 import './App.css';
 import { LoginForm } from './components/login'
-import Dashboard from './components/dashboard'
+import { Dashboard } from './components/dashboard'
 import React from 'react';
 
 

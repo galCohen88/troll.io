@@ -8,9 +8,6 @@ const remote = electron.remote;
 
 export function Game(props) {
     // TODO remove, change to variables from web socket
-    var url = "https://pong-2.com/";
-    var modalText = "Doohhhhhoooo!!!!!!"
-    var sender = 'Gal Cohen'
     return (
         <div>
             <Modal.Body>

@@ -1,6 +1,12 @@
 import io from 'socket.io-client';
 import registerHandlers from './handlers';
+import lodashCapitalize from 'lodash/capitalize';
 
+function capitalize(string) {
+    return string.indexOf('-') === -1 ?
+        lodashCapitalize(string) :
+        string.split('-').map(capitalize).join('-');
+}
 class WebSocket {
     constructor() {
         this._socket = null;
@@ -27,9 +33,12 @@ class WebSocket {
     }
 
     troll(target, options) {
+        const [autodeskUser,] = this._username.split('@');
+        const name = autodeskUser.split('.').map(capitalize).join(' ');
+
         this._emit('troll', {
             destination: target,
-            ...options
+            media: { sender: name, ...options }
         });
     }
 

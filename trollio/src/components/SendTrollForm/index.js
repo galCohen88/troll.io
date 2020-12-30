@@ -7,6 +7,12 @@ import Switch from './Switch';
 import { useSocket } from '../../socket';
 import Troll from './Troll';
 import { mapping, games } from './gifs';
+import { default as gifIcon } from '../../images/gif.png';
+import { default as youtubeIcon } from '../../images/youtube.png';
+import { default as linkIcon } from '../../images/link.png';
+import { default as pongIcon } from '../../images/pong.png';
+import { default as daveIcon } from '../../images/dave.png';
+import { default as sheshIcon } from '../../images/shesh.png';
 
 function capitalize(string) {
     return string.indexOf('-') === -1 ?
@@ -54,28 +60,28 @@ function TrollButtons({
     return (
         <div className="typeButtonsContainer">
             <div className="trollTypeButton" onClick={onGifClicked}>
-                GIF
+                <img className="troll-icon" src={gifIcon} alt="gif" />
             </div>
             <div className="trollTypeButton" onClick={onYouTubeClicked}>
-                YouTube
+                <img className="troll-icon" src={youtubeIcon} alt="gif" />
             </div>
             <div className="trollTypeButton" onClick={onLinkClicked}>
-                Link
+                <img className="troll-icon" src={linkIcon} alt="gif" />
             </div>
             <div className="trollTypeButton" onClick={onPongClicked}>
-                Pong
+                <img className="troll-icon" src={pongIcon} alt="gif" />
             </div>
             <div className="trollTypeButton" onClick={onDangerousDaveClicked}>
-                Dangerous Dave
+                <img className="troll-icon" src={daveIcon} alt="gif" />
             </div>
             <div className="trollTypeButton" onClick={onBackgammonClicked}>
-                Backgammon
+                <img className="troll-icon" src={sheshIcon} alt="gif" />
             </div>
         </div>
     )
 }
 
-function SendTrollModal(props) {
+function SendTrollModal({ onCancel }) {
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState('');
     const [datetime, setDatetime] = useState(now());
@@ -194,6 +200,7 @@ function SendTrollModal(props) {
                 <button
                     className="SendTrollModal__button SendTrollModal__button--secondary"
                     style={{ marginRight: '15px' }}
+                    onClick={onCancel}
                 >
                     Cancel
                 </button>

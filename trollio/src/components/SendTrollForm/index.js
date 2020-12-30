@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Autocomplete from 'react-autocomplete';
 import lodashCapitalize from 'lodash/capitalize';
@@ -13,6 +13,7 @@ import { default as linkIcon } from '../../images/link.png';
 import { default as pongIcon } from '../../images/pong.png';
 import { default as daveIcon } from '../../images/dave.png';
 import { default as sheshIcon } from '../../images/shesh.png';
+import ReactAudioPlayer from 'react-audio-player';
 
 function capitalize(string) {
     return string.indexOf('-') === -1 ?
@@ -58,24 +59,29 @@ function TrollButtons({
     onBackgammonClicked,
 }) {
     return (
-        <div className="typeButtonsContainer">
-            <div className="trollTypeButton" onClick={onGifClicked}>
-                <img className="troll-icon" src={gifIcon} alt="gif" />
+        <div>
+            <div style={{ marginBottom: '25px', width: '100%', textAlign: 'center' }}>
+                Select an option
             </div>
-            <div className="trollTypeButton" onClick={onYouTubeClicked}>
-                <img className="troll-icon" src={youtubeIcon} alt="gif" />
-            </div>
-            <div className="trollTypeButton" onClick={onLinkClicked}>
-                <img className="troll-icon" src={linkIcon} alt="gif" />
-            </div>
-            <div className="trollTypeButton" onClick={onPongClicked}>
-                <img className="troll-icon" src={pongIcon} alt="gif" />
-            </div>
-            <div className="trollTypeButton" onClick={onDangerousDaveClicked}>
-                <img className="troll-icon" src={daveIcon} alt="gif" />
-            </div>
-            <div className="trollTypeButton" onClick={onBackgammonClicked}>
-                <img className="troll-icon" src={sheshIcon} alt="gif" />
+            <div className="typeButtonsContainer">
+                <div className="trollTypeButton" onClick={onGifClicked}>
+                    <img className="troll-icon" src={gifIcon} alt="gif" />
+                </div>
+                <div className="trollTypeButton" onClick={onYouTubeClicked}>
+                    <img className="troll-icon" src={youtubeIcon} alt="gif" />
+                </div>
+                <div className="trollTypeButton" onClick={onLinkClicked}>
+                    <img className="troll-icon" src={linkIcon} alt="gif" />
+                </div>
+                <div className="trollTypeButton" onClick={onPongClicked}>
+                    <img className="troll-icon" src={pongIcon} alt="gif" />
+                </div>
+                <div className="trollTypeButton" onClick={onDangerousDaveClicked}>
+                    <img className="troll-icon" src={daveIcon} alt="gif" />
+                </div>
+                <div className="trollTypeButton" onClick={onBackgammonClicked}>
+                    <img className="troll-icon" src={sheshIcon} alt="gif" />
+                </div>
             </div>
         </div>
     )

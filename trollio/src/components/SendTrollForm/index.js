@@ -127,6 +127,14 @@ function SendTrollModal(props) {
                 return <img src={mapping[selectedTroll]} alt={selectedTroll} />
             }
         }
+
+        if (trollType === 'youtube' || trollType === 'link') {
+            if (!selectedTroll) {
+                return (
+                    <input className="link-input" value={selectedTroll} onChange={setSelectedTroll} placeholder="Paste URL here!" />
+                );
+            }
+        }
     }
 
     return (

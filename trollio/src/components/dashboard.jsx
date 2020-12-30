@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSocket } from '../socket';
 import ReactAudioPlayer from 'react-audio-player';
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { Website } from './website';
 import { Image } from './image';
 import { Youtube } from './youtube'
@@ -11,6 +11,7 @@ import "./styles.css";
 import './dashboard.css'
 import { audioMapping } from './SendTrollForm/audio';
 import { mapping } from './SendTrollForm/gifs';
+import SendTrollModal from './SendTrollForm/';
 
 const electron = window.require("electron")
 const remote = electron.remote;
@@ -117,6 +118,9 @@ export function Dashboard(props) {
             <div>        
                 <div className="title">
                 <label>TROLL.IO</label>
+                </div>
+                <div>
+                    <Button onClick={}></Button>
                 </div>
                 <div>
                     {modal}

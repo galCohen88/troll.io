@@ -1,44 +1,60 @@
-#scores {
+.scores {
     text-align: left;
     font-size: 14px;
+    width: 510px;
 }
 
-#scores th {
-    font-size: 12px;
-}
-
-#scores td, th {
+.scores td, th {
     padding-bottom: 15px;
     padding-top: 15px;
 }
 
-#scores td.name {
-    padding-right: 170px;
+.scores .name {
+    width: 305px;
 }
 
-#scores td.photo {
-    padding-right: 20px;
-    padding-left: 20px;
+.scores .photo {
+    width: 84px;
 }
 
-#scores td.sent {
-    padding-right: 20px;
+.scores .sent {
+    text-align: center;
+    width: 67px;
 }
 
-#scores td.received {
-    padding-right: 50px;
+.scores .received {
+    text-align: center;
+    width: 67px;
 }
 
-#scores tr.top-three > td.name {
+.scores tr.top-three > td.name {
     color: #4DEC9F;
 }
 
-#scores tr.current-user {
+.scores tr.current-user {
     background-color: #3B3B3B;
 }
 
-#scores .user-image {
+.scores .user-image {
     width: 44px;
     height: 44px;
     border-radius: 50%;
+}
+
+#score-container {
+    overflow: scroll;
+    height:400px;
+}
+
+#score-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+#score-container::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #3B3B3B;
+}
+
+#score-container::-webkit-scrollbar-corner {
+    background-color: #272527;
 }

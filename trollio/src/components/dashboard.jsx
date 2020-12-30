@@ -37,7 +37,7 @@ export function Dashboard(props) {
         resizeWindow(945, 896);
         var troll = null;
         var trollType = message.trollType;
-        
+
         if (trollType == 'image'){
             var url = message.troll
             if (message.troll in mapping){
@@ -60,7 +60,7 @@ export function Dashboard(props) {
         if (trollType == 'youtube'){
             troll = <Youtube message={message.message} includeMotion={message.includeMotion} url={message.troll} sender={message.sender}/>
         }
-    
+
         if (trollType == 'game'){
             var gameImage = null;
             var gameUrl = null;
@@ -76,7 +76,7 @@ export function Dashboard(props) {
                 gameImage = 'https://galcosagemaker.s3.amazonaws.com/pong.png'
                 gameUrl = 'https://pong-2.com/'
             }
-            
+
             troll = <Game gameUrl={gameUrl} gameImage={gameImage} includeMotion={message.includeMotion}/>
         }
         modal = <Modal show={true} onHide={handleClose} className="ReceiverModal">{troll}</Modal>
@@ -119,7 +119,7 @@ export function Dashboard(props) {
 
         const rows = props.scores.map( renderScoreRow );
         return (
-            <div>        
+            <div>
                 <div className="title">
                 <label>TROLL.IO</label>
                 </div>
@@ -131,25 +131,30 @@ export function Dashboard(props) {
                     <SendTrollModal onCancel={handleModalClose}></SendTrollModal>
                 </Modal>
                 </div>
+
                 <div>
                     {modal}
-                    <table id='scores'>
+                    <table className='scores'>
                         <thead>
-                            <tr>
-                                <th> </th>
-                                <th> </th>
-                                <th>Sent</th>
-                                <th>Received</th>
-                            </tr>
+                        <tr>
+                            <th className="photo"> </th>
+                            <th className="name"> </th>
+                            <th className="sent">Sent</th>
+                            <th className="received">Received</th>
+                        </tr>
                         </thead>
-                        <tbody>
-                            {rows}
-                        </tbody>
                     </table>
+                    <div id="score-container">
+                        <table className='scores'>
+                            <tbody>
+                                {rows}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         );
-    
+
 }
 
 
@@ -171,7 +176,7 @@ export function Dashboard(props) {
 // const  Notification = remote.Notification;
 
 // export function ReceiverModal() {
- 
+
 //     const [show, setShow] = useState(false);
 //     const appIcon = nativeImage.createFromPath('logo.png')
 //     const notification = {
@@ -189,7 +194,7 @@ export function Dashboard(props) {
 //     var sender = 'Gal Cohen'
 //     var autoPlay = true
 
-      
+
 //     return (
 //         <div className="App">
 //             <Button variant="primary" onClick={handleShow}>
@@ -206,8 +211,8 @@ export function Dashboard(props) {
 //                 <ReactAudioPlayer src={audio} autoPlay={autoPlay} />
 //                     <div className='ModalText'>{modalText}</div>
 
-                    
-//                     <div className='Sender'> Sent with 
+
+//                     <div className='Sender'> Sent with
 //                     <img className='Heart' src='https://galcosagemaker.s3.amazonaws.com/heart.png'></img>
 //                     by <label className='SenderName'> {sender} </label>
 //                     </div>

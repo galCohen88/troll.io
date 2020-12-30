@@ -35,7 +35,7 @@
 }
 
 .SendTrollModal__input-trolled {
-    width: 324px;
+    width: 610px;
 }
 
 .SendTrollModal__input-datetime {
@@ -106,15 +106,15 @@
 
 .typeButtonsContainer {
     display: grid;
-    grid-template-columns: repeat(3, 90px);
+    grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(2, 52px);
-    column-gap: 20px;
-    row-gap: 20px;
+    column-gap: 12px;
+    row-gap: 12px;
     margin: auto;
 }
 
 .trollTypeButton {
-    width: 90px;
+    width: 100px;
     height: 52px;
     background: #383638;
     box-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.4), 0px 0.5px 1.5px rgba(0, 0, 0, 0.2), inset 0px 0.5px 0px rgba(255, 255, 255, 0.25), inset 0px 1px 0px rgba(255, 255, 255, 0.06);

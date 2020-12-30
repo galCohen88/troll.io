@@ -58,3 +58,21 @@
 #score-container::-webkit-scrollbar-corner {
     background-color: #272527;
 }
+
+.ModalOpen{
+    height: 36px;
+    width: 150px;
+    background: linear-gradient(180deg, #289689 0%, #3FB27B 77.78%);
+    border-style: hidden;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 4px;
+
+}
+
+.SendModal .modal-dialog {
+    margin-left: 135px;
+}

@@ -7,10 +7,7 @@ const electron = window.require("electron")
 const remote = electron.remote;
 
 export function Youtube(props) {
-    // TODO remove, change to variables from web socket
-    if(props.includeMotion){
-        popUp(props.url, true)
-    }
+    popUp(props.url, props.includeMotion)
     return (
         <div>
             <Modal.Body>

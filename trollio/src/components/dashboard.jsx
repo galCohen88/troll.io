@@ -9,6 +9,9 @@ import { Game } from './game'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 import './dashboard.css'
+import { audioMapping } from './SendTrollForm/audio';
+import { mapping } from './SendTrollForm/gifs';
+
 const electron = window.require("electron")
 const remote = electron.remote;
 
@@ -31,7 +34,20 @@ export function Dashboard(props) {
         var trollType = message.trollType;
         
         if (trollType == 'image'){
-            troll = <Image message={message.message} includeMotion={message.includeMotion} url={message.troll} sender={message.sender}/>
+            var url = message.troll
+            if (message.troll in mapping){
+                url = mapping[url]
+            }
+
+            var audioUrl = message.troll
+            if (message.troll in audioMapping){
+                audioUrl = audioMapping[audioUrl];
+            }
+            else{
+                audioUrl=null;
+            }
+
+            troll = <Image audio={audioUrl} includeSound={message.includeSound} message={message.message} includeMotion={message.includeMotion} url={url} sender={message.sender}/>
         }
         if (trollType == 'website'){
             troll = <Website message={message.message} includeMotion={message.includeMotion} url={message.troll} sender={message.sender}/>
@@ -58,9 +74,7 @@ export function Dashboard(props) {
             
             troll = <Game gameUrl={gameUrl} gameImage={gameImage} includeMotion={message.includeMotion}/>
         }
-        var audio = 'http://dnfw.org/hl/sound/misc/doh.wav'
-        var autoPlay = true
-        modal = <Modal show={true} onHide={handleClose} className="ReceiverModal">{troll}<ReactAudioPlayer src={audio} autoPlay={autoPlay} /></Modal>
+        modal = <Modal show={true} onHide={handleClose} className="ReceiverModal">{troll}</Modal>
     }
 
     function resizeWindow(x, y) {

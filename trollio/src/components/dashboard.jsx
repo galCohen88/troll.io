@@ -124,10 +124,10 @@ export function Dashboard(props) {
                 <label>TROLL.IO</label>
                 </div>
                 <div>
-                <Button variant="primary" onClick={handleModalShow}>
-                Send troll modal
+                <Button className='ModalOpen' variant="primary" onClick={handleModalShow}>
+                Troll a friend
                 </Button>
-                <Modal show={show} onHide={handleModalClose}>
+                <Modal className='SendModal' show={show} onHide={handleModalClose}>
                     <SendTrollModal onCancel={handleModalClose}></SendTrollModal>
                 </Modal>
                 </div>

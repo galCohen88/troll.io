@@ -6,7 +6,6 @@ import { Website } from './website';
 import { Image } from './image';
 import { Youtube } from './youtube'
 import { Game } from './game'
-import { ReceiverModal } from './receiverModal'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 import './dashboard.css'
@@ -14,12 +13,11 @@ const electron = window.require("electron")
 const remote = electron.remote;
 
 export function Dashboard(props) {
-    
+
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState(null);
 
-    const handleClose = () => { setMessage(null); setShow(false); }
-    const handleShow = () => { setShow(true); resizeWindow(945, 896);}
+    const handleClose = () => { setMessage(null); setShow(false); resizeWindow(600, 500);}
 
     const socket = useSocket();
     var modal = null;
@@ -28,6 +26,7 @@ export function Dashboard(props) {
     })
 
     if (message){
+        resizeWindow(945, 896);
         var troll = null;
         var trollType = message.trollType;
         
@@ -61,8 +60,12 @@ export function Dashboard(props) {
         }
         var audio = 'http://dnfw.org/hl/sound/misc/doh.wav'
         var autoPlay = true
-        resizeWindow(600, 500);
         modal = <Modal show={true} onHide={handleClose} className="ReceiverModal">{troll}<ReactAudioPlayer src={audio} autoPlay={autoPlay} /></Modal>
+    }
+
+    function resizeWindow(x, y) {
+        const currentWindow = remote.getCurrentWindow();
+        currentWindow.setSize(x, y)
     }
 
     function renderScoreRow(score, index) {
@@ -117,7 +120,3 @@ export function Dashboard(props) {
     
 }
 
-function resizeWindow(x, y) {
-    const currentWindow = remote.getCurrentWindow();
-    currentWindow.setSize(x, y)
-}

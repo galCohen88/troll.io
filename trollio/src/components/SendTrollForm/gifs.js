@@ -10,3 +10,9 @@ export const mapping = {
     bazinga: 'https://media.giphy.com/media/CxvsSBeaJwKUE/source.gif',
     iceSkatingTRex: 'https://media.giphy.com/media/QVnMn6HrCwPD2/source.gif',
 };
+
+export const games = {
+    pong: 'https://galcosagemaker.s3.amazonaws.com/pong.png',
+    shesh: 'https://galcosagemaker.s3.amazonaws.com/shesh.png',
+    dave: 'https://galcosagemaker.s3.amazonaws.com/dave.png',
+};

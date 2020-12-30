@@ -6,7 +6,7 @@ import './SendTrollForm.css';
 import Switch from './Switch';
 import { useSocket } from '../../socket';
 import Troll from './Troll';
-import { mapping } from './gifs';
+import { mapping, games } from './gifs';
 
 function capitalize(string) {
     return string.indexOf('-') === -1 ?
@@ -129,11 +129,13 @@ function SendTrollModal(props) {
         }
 
         if (trollType === 'youtube' || trollType === 'link') {
-            if (!selectedTroll) {
-                return (
-                    <input className="link-input" value={selectedTroll} onChange={setSelectedTroll} placeholder="Paste URL here!" />
-                );
-            }
+            return (
+                <input className="link-input" value={selectedTroll} onChange={e => setSelectedTroll(e.target.value)} placeholder="Paste URL here!" />
+            );
+        }
+
+        if (trollType === 'game') {
+            return <img src={games[selectedTroll]} alt={selectedTroll} style={{ width: '100%', height: '100%' }} />
         }
     }
 

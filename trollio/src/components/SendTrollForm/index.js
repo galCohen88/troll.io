@@ -96,7 +96,7 @@ function SendTrollModal(props) {
 
     function sendTroll() {
         socket.troll(selectedUser, {
-            troll: mapping[selectedTroll] || selectedTroll,
+            troll: selectedTroll,
             trollType,
             message,
             includeSound,

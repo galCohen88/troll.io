@@ -92,7 +92,6 @@ function SendTrollModal({ onCancel }) {
     const [includeMotion, setIncludeMotion] = useState(false);
 
     const socket = useSocket();
-    socket.connect('dor.mesica@autodeks.com');
 
     useEffect(() => {
         axios('http://ec2-52-91-163-171.compute-1.amazonaws.com/users')

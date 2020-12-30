@@ -88,7 +88,7 @@ function SendTrollModal({ onCancel }) {
     const [trollType, setTrollType] = useState('');
     const [selectedTroll, setSelectedTroll] = useState('');
     const [message, setMessage] = useState('');
-    const [includeSound, setIncludeSound] = useState(false);
+    const [includeSound, setIncludeSound] = useState(true);
     const [includeMotion, setIncludeMotion] = useState(false);
 
     const socket = useSocket();
@@ -147,9 +147,10 @@ function SendTrollModal({ onCancel }) {
     return (
         <div className="SendTrollModal__container">
             <div className="SendTrollModal__row" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '40px' }}>
-                <div>
+                <div style={{ width: '100%' }}>
                     <Title title="To" />
                     <Autocomplete
+                        style={{ width: '650px' }}
                         value={selectedUser}
                         onChange={(_e, value) => setSelectedUser(value)}
                         onSelect={value => setSelectedUser(value)}
@@ -163,7 +164,7 @@ function SendTrollModal({ onCancel }) {
                         }}
                     />
                 </div>
-                <div>
+                {/* <div>
                     <Title title="Time" />
                     <input
                         type="datetime-local"
@@ -171,7 +172,7 @@ function SendTrollModal({ onCancel }) {
                         value={datetime}
                         onChange={e => setDatetime(e.target.value)}
                     />
-                </div>
+                </div> */}
             </div>
             <div className="SendTrollModal__row">
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>

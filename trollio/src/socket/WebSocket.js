@@ -38,7 +38,7 @@ class WebSocket {
 
         this._emit('troll', {
             destination: target,
-            media: { sender: name, ...options }
+            media: { sender: name, senderEmail: this._username, ...options }
         });
     }
 

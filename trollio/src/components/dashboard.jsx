@@ -16,7 +16,7 @@ const electron = window.require("electron")
 const remote = electron.remote;
 
 export function Dashboard(props) {
-
+    resizeWindow(945, 896);
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState(null);
 
@@ -114,21 +114,26 @@ export function Dashboard(props) {
 
         const rows = props.scores.map( renderScoreRow );
         return (
-            <div>
-                {modal}
-            <table id='scores'>
-                <thead>
-                    <tr>
-                        <th> </th>
-                        <th> </th>
-                        <th>Sent</th>
-                        <th>Received</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </table>
+            <div>        
+                <div className="title">
+                <label>TROLL.IO</label>
+                </div>
+                <div>
+                    {modal}
+                    <table id='scores'>
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                <th> </th>
+                                <th>Sent</th>
+                                <th>Received</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {rows}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         );
     

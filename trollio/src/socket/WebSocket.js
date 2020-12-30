@@ -26,6 +26,17 @@ class WebSocket {
         this._emit('logoff', { username: this._username });
     }
 
+    troll(target, options) {
+        this._emit('troll', {
+            destination: target,
+            ...options
+        });
+    }
+
+    on(event, handler) {
+        this._socket.on(event, handler);
+    }
+
     _emit(type, json) {
         this._socket.emit(type, JSON.stringify(json));
     }

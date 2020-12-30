@@ -26,7 +26,7 @@
 }
 
 #scores td.received {
-    padding-right: 50px;
+    text-align:  center ;
 }
 
 #scores tr.top-three > td.name {

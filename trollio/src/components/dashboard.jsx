@@ -142,7 +142,7 @@ export function Dashboard(props) {
                                 <th>Received</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className='UsersTable'>
                             {rows}
                         </tbody>
                     </table>

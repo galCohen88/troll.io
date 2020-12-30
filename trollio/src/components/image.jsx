@@ -1,30 +1,56 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 import ReactAudioPlayer from 'react-audio-player';
+// const electron = window.require("electron")
+// const remote = electron.remote;
+// const BrowserWindow = remote.BrowserWindow;
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 
-export function Image() {
+export function Image(props) {
 
     // TODO remove, change to variables from web socket
-    var img = "http://interactive.nydailynews.com/2016/05/simpsons-quiz/img/simp1.jpg";
     var audio = 'http://dnfw.org/hl/sound/misc/doh.wav'
-    var modalText = "Doohhhhhoooo!!!!!!"
-    var sender = 'Gal Cohen'
     var autoPlay = true
-
     return (
         <Modal.Body>
         <Modal.Title>
-        <img className='Center' src={img}></img>
+        <img className='Center' src={props.url}></img>
             </Modal.Title>
         <ReactAudioPlayer src={audio} autoPlay={autoPlay} />
-            <div className='ModalText'>{modalText}</div>
+            <div className='ModalText'>{props.message}</div>
             <div className='Sender'> Sent with 
             <img className='Heart' src='https://galcosagemaker.s3.amazonaws.com/heart.png'></img>
-            by <label className='SenderName'> {sender} </label>
+            by <label className='SenderName'> {props.sender} </label>
             </div>
 
         </Modal.Body>
     );
 }
+ 
+// function moveWindowOnceReady(win){
+  
+//     win.webContents.once('dom-ready', () => {
+//       win.moveTop();
+//       win.focus();
+//       win.hide();
+//       win.show();
+//       var x_max = 1000
+//       var x_min = 0
+//       var y_max = 100
+//       var y_mix = 0
+//       var moves = 20;
+//       var count =  0;
+//       while (count<moves) {
+//         count += 1;
+//         var x = Math.floor(Math.random() * (x_max - x_min + 1)) + x_min;
+//         var y = Math.floor(Math.random() * (y_max - y_mix + 1)) + y_mix;
+//         win.setPosition(x,y, true); 
+//       }
+//       win.maximize()
+//     });
+  
+  
+//   }
+  

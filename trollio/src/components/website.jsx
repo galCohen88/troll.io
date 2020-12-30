@@ -6,12 +6,13 @@ import { popUp } from './popup'
 const electron = window.require("electron")
 const remote = electron.remote;
 
-export function Website() {
+export function Website(props) {
     // TODO remove, change to variables from web socket
     var url = "http://google.com";
     var modalText = "Doohhhhhoooo!!!!!!"
-    var sender = 'Gal Cohen'
-    popUp(url, true)
+    if(props.includeMotion){
+        popUp(url, true)
+    }
     return (
         <div>
             <Modal.Body>
@@ -21,7 +22,7 @@ export function Website() {
                 <div className='ModalText'>{modalText}</div>
                 <div className='Sender'> Sent with
                     <img className='Heart' src='https://galcosagemaker.s3.amazonaws.com/heart.png'></img>
-                    by <label className='SenderName'> {sender} </label>
+                    by <label className='SenderName'> {props.sender} </label>
                 </div>
             </Modal.Body>
         </div>

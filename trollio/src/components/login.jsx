@@ -22,7 +22,7 @@ export function LoginForm(props) {
       if (!isLogged){
         alert('User not found')
       }
-      isLogged && handleLoginTrue(response);
+      isLogged && handleLoginTrue(user, response);
     })
     .catch((error) => {
       alert('Problem logging in');
@@ -31,8 +31,8 @@ export function LoginForm(props) {
     event.preventDefault();
   }
 
-  function handleLoginTrue(response) {
-      props.appHandler(response.data.scores);
+  function handleLoginTrue(user, response) {
+      props.appHandler(user, response.data.scores);
       socket.connect(user);
   }
 

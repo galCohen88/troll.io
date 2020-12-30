@@ -1,0 +1,44 @@
+#scores {
+    text-align: left;
+    font-size: 14px;
+}
+
+#scores th {
+    font-size: 12px;
+}
+
+#scores td, th {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+#scores td.name {
+    padding-right: 170px;
+}
+
+#scores td.photo {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+#scores td.sent {
+    padding-right: 20px;
+}
+
+#scores td.received {
+    padding-right: 50px;
+}
+
+#scores tr.top-three > td.name {
+    color: #4DEC9F;
+}
+
+#scores tr.current-user {
+    background-color: #3B3B3B;
+}
+
+#scores .user-image {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}

@@ -10,15 +10,17 @@ class App extends React.Component {
         super(props);
         this.state = {
             isLoggedIn: false,
-            scores: []
+            scores: [],
+            currentUser: null,
         };
         this.handleLogin = this.handleLogin.bind(this);
     }
 
-    handleLogin(scores) {
+    handleLogin(user, scores) {
         this.setState({
             isLoggedIn: true,
             scores: scores,
+            currentUser: user,
         })
     }
 
@@ -26,7 +28,7 @@ class App extends React.Component {
         if (!this.state.isLoggedIn) {
             return <LoginForm className='Login-form' appHandler={this.handleLogin}/>
         }
-        return <Dashboard scores={this.state.scores} />
+        return <Dashboard scores={this.state.scores} currentUser={this.state.currentUser} />
     }
 
     render() {

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './login.css';
 import { useSocket } from '../socket';
-import { ReceiverModal } from './receiverModal'
 
 export function LoginForm(props) {
   const [user, setUser] = useState(null);
@@ -32,8 +31,8 @@ export function LoginForm(props) {
   }
 
   function handleLoginTrue(user, response) {
-      props.appHandler(user, response.data.scores);
       socket.connect(user);
+      props.appHandler(user, response.data.scores);
   }
 
   return (
@@ -48,9 +47,6 @@ export function LoginForm(props) {
                 </label>
                 <input type="submit" className='Submit' value="Login" />
             </form>
-        </div>
-        <div>
-          <ReceiverModal/>
         </div>
     </div>
   );
